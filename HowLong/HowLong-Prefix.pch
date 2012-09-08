@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'HowLong' target in the 'HowLong' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
