@@ -1,0 +1,17 @@
+HowLong
+=======
+
+It's a simple mac toolbar app that alerts you how long you have left before you hit 30 years in age. A gentle reminder for myself that time does not wait for you and to not spend all day on reddit. At some point, I'd like to make a physical clock that counts down the number of hours till you hit 30 using giant seven segment LCDs, but that's a project for another day.
+
+The app is hardcoded with my birthdate right now, if anyone other than me is interested in this, you can tweak it in `TYTimeManager.m`. Just replace the following line with your birth date in MM/dd/yyyy format.
+
+`self.birthDate = [formatter dateFromString:@"01/03/1987"];`
+
+The constants currently programmed into the app assume that your "good" years are done when you hit 30 and begin when you reach 20. I realize this might be ageist, so if you'd like to tweak these constants as well, you can do it in `TYTimeManager.m`. 
+
+`static const int kMaxYears = 30;`
+`static const int kGoodYears = 10;`
+
+Set kMaxYears to your maximum age and kGoodYears to however many years ago in your opinion life started being awesome.
+
+Other than that, one feature I don't have the time to implement right now is to let the user pick all these in a UI. If you'd like to implement this, please do send a pull request and I'll merge it in.
