@@ -74,7 +74,7 @@ static const float kTimerRefreshRate = 3600.0f;
     }
     NSDate *lifeEndsAtDate = [self dateByAddingYears:kMaxYears toBirthDate:birthDate];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSUInteger flags = NSSecondCalendarUnit;
+    NSUInteger flags = NSHourCalendarUnit;
     NSDateComponents *components = [calendar components:flags
                                                fromDate:[[NSDate alloc] init]
                                                  toDate:lifeEndsAtDate
