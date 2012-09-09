@@ -13,6 +13,7 @@
 		B7986A0E15FBF66A006A2476 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7986A0C15FBF66A006A2476 /* Credits.rtf */; };
 		B7986A1115FBF66A006A2476 /* TYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A1015FBF66A006A2476 /* TYAppDelegate.m */; };
 		B7986A1415FBF66A006A2476 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7986A1215FBF66A006A2476 /* MainMenu.xib */; };
+		B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A1B15FBF741006A2476 /* TYTimeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		B7986A0F15FBF66A006A2476 /* TYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAppDelegate.h; sourceTree = "<group>"; };
 		B7986A1015FBF66A006A2476 /* TYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAppDelegate.m; sourceTree = "<group>"; };
 		B7986A1315FBF66A006A2476 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B7986A1A15FBF741006A2476 /* TYTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimeManager.h; sourceTree = "<group>"; };
+		B7986A1B15FBF741006A2476 /* TYTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 			children = (
 				B7986A0F15FBF66A006A2476 /* TYAppDelegate.h */,
 				B7986A1015FBF66A006A2476 /* TYAppDelegate.m */,
+				B7986A1A15FBF741006A2476 /* TYTimeManager.h */,
+				B7986A1B15FBF741006A2476 /* TYTimeManager.m */,
 				B7986A1215FBF66A006A2476 /* MainMenu.xib */,
 				B7986A0415FBF66A006A2476 /* Supporting Files */,
 			);
@@ -169,6 +174,7 @@
 			files = (
 				B7986A0A15FBF66A006A2476 /* main.m in Sources */,
 				B7986A1115FBF66A006A2476 /* TYAppDelegate.m in Sources */,
+				B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
