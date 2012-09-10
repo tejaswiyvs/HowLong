@@ -1,7 +1,7 @@
 HowLong
 =======
 
-It's a simple mac toolbar app that alerts you how long you have left before you hit 30 years in age. A gentle reminder for myself that time does not wait for you and to not spend all day on reddit. At some point, I'd like to make a physical clock that counts down the number of hours till you hit 30 using giant seven segment LCDs, but that's a project for another day.
+It's a simple mac toolbar app that alerts you how long you have left before you hit 30 years in age. A gentle reminder for myself that time does not wait for you and to not spend all day on reddit. At some point, I'd like to make a physical clock that counts down the number of hours till you hit 30 using giant seven segment LCDs, but that's a project for another day. A little bit of detail on why exactly this might be important is up on my [blog](http://tejaswi-yerukalapudi.com/2012/09/10/a-countdown-timer-for-your-life/).
 
 The app is hardcoded with my birthdate right now, if anyone other than me is interested in this, you can tweak it in `TYTimeManager.m`. Just replace the following line with your birth date in MM/dd/yyyy format.
 
