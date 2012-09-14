@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B7319B5E15FF89BF005269D5 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7319B5D15FF89BF005269D5 /* SettingsWindow.xib */; };
 		B76ECEAB1603B6F300515BF0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B76ECEAA1603B6F300515BF0 /* Constants.m */; };
+		B76ECEB81603CA8400515BF0 /* TYHowLongApp.m in Sources */ = {isa = PBXBuildFile; fileRef = B76ECEB71603CA8400515BF0 /* TYHowLongApp.m */; };
 		B79869FE15FBF66A006A2476 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79869FD15FBF66A006A2476 /* Cocoa.framework */; };
 		B7986A0815FBF66A006A2476 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7986A0615FBF66A006A2476 /* InfoPlist.strings */; };
 		B7986A0A15FBF66A006A2476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A0915FBF66A006A2476 /* main.m */; };
@@ -23,6 +24,8 @@
 		B7319B5D15FF89BF005269D5 /* SettingsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
 		B76ECEA91603B6F300515BF0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B76ECEAA1603B6F300515BF0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B76ECEB61603CA8400515BF0 /* TYHowLongApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHowLongApp.h; sourceTree = "<group>"; };
+		B76ECEB71603CA8400515BF0 /* TYHowLongApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHowLongApp.m; sourceTree = "<group>"; };
 		B79869F915FBF66A006A2476 /* HowLong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowLong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79869FD15FBF66A006A2476 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B7986A0015FBF66A006A2476 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,6 +96,8 @@
 		B7986A0315FBF66A006A2476 /* HowLong */ = {
 			isa = PBXGroup;
 			children = (
+				B76ECEB61603CA8400515BF0 /* TYHowLongApp.h */,
+				B76ECEB71603CA8400515BF0 /* TYHowLongApp.m */,
 				B76ECEA91603B6F300515BF0 /* Constants.h */,
 				B76ECEAA1603B6F300515BF0 /* Constants.m */,
 				B7986A1A15FBF741006A2476 /* TYTimeManager.h */,
@@ -191,6 +196,7 @@
 				B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */,
 				B7F870F215FFDB5300175B2A /* TYSettingsWindowController.m in Sources */,
 				B76ECEAB1603B6F300515BF0 /* Constants.m in Sources */,
+				B76ECEB81603CA8400515BF0 /* TYHowLongApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

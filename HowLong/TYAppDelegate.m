@@ -90,7 +90,7 @@ const int kWindowHeight = 400;
 #pragma mark - Helpers
 
 -(void) refreshStatusText {
-    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f | %.6ld", self.manager.percentageComplete, self.manager.hoursLeft]];
+    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f%% | %.6ld hrs", self.manager.percentageComplete, self.manager.hoursLeft]];
 }
 
 @end

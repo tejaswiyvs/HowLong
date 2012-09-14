@@ -104,14 +104,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">openBucketListItemClicked:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="897417579"/>
-					</object>
-					<int key="connectionID">551</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">quitItemClicked:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="660589626"/>
@@ -125,6 +117,14 @@
 						<reference key="destination" ref="524252424"/>
 					</object>
 					<int key="connectionID">555</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openBucketListItemClicked:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="897417579"/>
+					</object>
+					<int key="connectionID">666</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -167,17 +167,12 @@
 						<int key="objectID">545</int>
 						<reference key="object" ref="427714033"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="897417579"/>
 							<reference ref="660589626"/>
 							<reference ref="572737962"/>
 							<reference ref="524252424"/>
+							<reference ref="897417579"/>
 						</array>
 						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">546</int>
-						<reference key="object" ref="897417579"/>
-						<reference key="parent" ref="427714033"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">548</int>
@@ -194,6 +189,11 @@
 						<reference key="object" ref="524252424"/>
 						<reference key="parent" ref="427714033"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">665</int>
+						<reference key="object" ref="897417579"/>
+						<reference key="parent" ref="427714033"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -203,16 +203,16 @@
 				<string key="420.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="494.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="546.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="549.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="554.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="665.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">664</int>
+			<int key="maxID">666</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
