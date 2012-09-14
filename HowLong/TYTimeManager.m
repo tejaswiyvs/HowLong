@@ -79,10 +79,6 @@ static const float kTimerRefreshRate = 3600.0f;
     return [[NSUserDefaults standardUserDefaults] objectForKey:kBirthDateKey];
 }
 
--(NSString *) bucketListUrl {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kBucketListUrlKey];
-}
-
 #pragma mark - Helpers
 
 -(long) ageFromBirthDate:(NSDate *) birthDate {
