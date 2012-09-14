@@ -8,36 +8,73 @@
 
 #import "TYAppDelegate.h"
 #import "TYTimeManager.h"
+#import "TYSettingsWindowController.h"
+#import "Constants.h"
+
+
+@interface TYAppDelegate ()
+-(void) refreshStatusText;
+-(void) settingsNotificationFired:(NSNotification *) notification;
+@end
 
 @implementation TYAppDelegate
 
 @synthesize statusMenuItem = _statusMenuItem;
+@synthesize setBirthDateItem = _setBirthDateItem;
 @synthesize menu = _menu;
 @synthesize manager = _manager;
 
-static NSString * const kBucketListUrl = @"https://docs.google.com/document/d/1kJ91CM0xfvUdgTXnii0sKZ9cDJwMYv7Yal2scNlycp4";
+const int kWindowWidth = 600;
+const int kWindowHeight = 400;
 
 -(void) awakeFromNib
 {
-    // Insert code here to initialize your application
     self.manager = [[TYTimeManager alloc] init];
     [self.manager addObserver:self forKeyPath:@"hoursLeft" options:0 context:NULL];
     
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+    
+    // Populate the status item with values percentage and hours left
     self.statusMenuItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
-    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f | %ld", self.manager.percentageComplete, self.manager.hoursLeft]];
     [self.statusMenuItem setHighlightMode:YES];
     self.statusMenuItem.menu = self.menu;
+    [self refreshStatusText];
+    
+    // Register for notifications
+    if (!self.settingsController) {
+        self.settingsController = [[TYSettingsWindowController alloc] init];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsNotificationFired:) name:kSettingsUpdatedNotification object:nil];
+}
+
+-(void)applicationDidBecomeActive:(NSNotification *)notification {
+    [self refreshStatusText];
+}
+
+#pragma mark - NSNotificationHandler
+
+-(void) settingsNotificationFired:(NSNotification *) notification {
+    if ([notification.name isEqualToString:kSettingsUpdatedNotification]) {
+        [self refreshStatusText];
+    }
 }
 
 #pragma mark - Event Handlers
 
 -(IBAction)openBucketListItemClicked:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:kBucketListUrl]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *bucketListUrl = [defaults objectForKey:kBucketListUrlKey];
+    if (bucketListUrl) {
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:bucketListUrl]];
+    }
 }
 
 -(IBAction)setBirthDateItemClicked:(id)sender {
-
+    if (!self.settingsController) {
+        self.settingsController = [[TYSettingsWindowController alloc] init];
+    }
+    [self.settingsController show];
 }
 
 -(IBAction)quitItemClicked:(id)sender {
@@ -47,9 +84,13 @@ static NSString * const kBucketListUrl = @"https://docs.google.com/document/d/1k
 #pragma mark - KVO
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f | %.6ld", self.manager.percentageComplete, self.manager.hoursLeft]];
+    [self refreshStatusText];
 }
 
 #pragma mark - Helpers
+
+-(void) refreshStatusText {
+    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f | %.6ld", self.manager.percentageComplete, self.manager.hoursLeft]];
+}
 
 @end

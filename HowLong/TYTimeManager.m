@@ -7,6 +7,7 @@
 //
 
 #import "TYTimeManager.h"
+#import "Constants.h"
 
 @interface TYTimeManager ()
 -(long) ageFromBirthDate:(NSDate *) birthDate;
@@ -17,10 +18,8 @@
 @implementation TYTimeManager
 
 @synthesize birthDate = _birthDate;
-@synthesize hoursLeft = _countDownTimer;
+@synthesize hoursLeft = _hoursLeft;
 @synthesize percentageComplete = _percentageComplete;
-
-static NSString * const kBirthDateKey = @"birth_date";
 
 static const int kMaxYears = 30;
 static const int kGoodYears = 10;
@@ -29,20 +28,18 @@ static const float kTimerRefreshRate = 3600.0f;
 -(id) init {
     self = [super init];
     if (self) {
-//        self.birthDate = [[NSUserDefaults standardUserDefaults] objectForKey:kBirthDateKey];
-        // Load to my birthdate by default, add a picker sometime later.
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MM/dd/yyyy"];
-        self.birthDate = [formatter dateFromString:@"01/03/1987"];
-        self.hoursLeft = [self hoursLeftFromBirthDate:self.birthDate];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:kTimerRefreshRate target:self selector:@selector(refreshHoursLeft:) userInfo:nil repeats:YES];
     }
     return self;
 }
 
-#pragma mark - Helpers
+#pragma mark - Getters
 
 -(float) percentageComplete {
+    if (!self.birthDate) {
+        return 0.0f;
+    }
+
     NSCalendar *calender = [NSCalendar currentCalendar];
     long age = [self ageFromBirthDate:self.birthDate];
     if (age >= 30) {
@@ -64,15 +61,11 @@ static const float kTimerRefreshRate = 3600.0f;
     return (remainingHours / (completeHours + remainingHours)) * 100;
 }
 
--(void) refreshHoursLeft:(id) sender {
-    self.hoursLeft = [self hoursLeftFromBirthDate:self.birthDate];
-}
-
--(long) hoursLeftFromBirthDate:(NSDate *) birthDate {
-    if (!birthDate || [self ageFromBirthDate:birthDate] >= 30) {
+-(long) hoursLeft {
+    if (!self.birthDate || [self ageFromBirthDate:self.birthDate] >= 30) {
         return 0;
     }
-    NSDate *lifeEndsAtDate = [self dateByAddingYears:kMaxYears toBirthDate:birthDate];
+    NSDate *lifeEndsAtDate = [self dateByAddingYears:kMaxYears toBirthDate:self.birthDate];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger flags = NSHourCalendarUnit;
     NSDateComponents *components = [calendar components:flags
@@ -81,6 +74,16 @@ static const float kTimerRefreshRate = 3600.0f;
                                                 options:0];
     return [components hour];
 }
+
+-(NSDate *) birthDate {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kBirthDateKey];
+}
+
+-(NSString *) bucketListUrl {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kBucketListUrlKey];
+}
+
+#pragma mark - Helpers
 
 -(long) ageFromBirthDate:(NSDate *) birthDate {
     NSCalendar *calendar = [NSCalendar currentCalendar];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7319B5E15FF89BF005269D5 /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7319B5D15FF89BF005269D5 /* SettingsWindow.xib */; };
+		B76ECEAB1603B6F300515BF0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B76ECEAA1603B6F300515BF0 /* Constants.m */; };
 		B79869FE15FBF66A006A2476 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79869FD15FBF66A006A2476 /* Cocoa.framework */; };
 		B7986A0815FBF66A006A2476 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7986A0615FBF66A006A2476 /* InfoPlist.strings */; };
 		B7986A0A15FBF66A006A2476 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A0915FBF66A006A2476 /* main.m */; };
@@ -14,9 +16,13 @@
 		B7986A1115FBF66A006A2476 /* TYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A1015FBF66A006A2476 /* TYAppDelegate.m */; };
 		B7986A1415FBF66A006A2476 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7986A1215FBF66A006A2476 /* MainMenu.xib */; };
 		B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B7986A1B15FBF741006A2476 /* TYTimeManager.m */; };
+		B7F870F215FFDB5300175B2A /* TYSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F870F115FFDB5300175B2A /* TYSettingsWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7319B5D15FF89BF005269D5 /* SettingsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
+		B76ECEA91603B6F300515BF0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B76ECEAA1603B6F300515BF0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B79869F915FBF66A006A2476 /* HowLong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowLong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79869FD15FBF66A006A2476 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B7986A0015FBF66A006A2476 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -32,6 +38,8 @@
 		B7986A1315FBF66A006A2476 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B7986A1A15FBF741006A2476 /* TYTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimeManager.h; sourceTree = "<group>"; };
 		B7986A1B15FBF741006A2476 /* TYTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimeManager.m; sourceTree = "<group>"; };
+		B7F870F015FFDB5300175B2A /* TYSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSettingsWindowController.h; sourceTree = "<group>"; };
+		B7F870F115FFDB5300175B2A /* TYSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSettingsWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +93,15 @@
 		B7986A0315FBF66A006A2476 /* HowLong */ = {
 			isa = PBXGroup;
 			children = (
-				B7986A0F15FBF66A006A2476 /* TYAppDelegate.h */,
-				B7986A1015FBF66A006A2476 /* TYAppDelegate.m */,
+				B76ECEA91603B6F300515BF0 /* Constants.h */,
+				B76ECEAA1603B6F300515BF0 /* Constants.m */,
 				B7986A1A15FBF741006A2476 /* TYTimeManager.h */,
 				B7986A1B15FBF741006A2476 /* TYTimeManager.m */,
+				B7F870F015FFDB5300175B2A /* TYSettingsWindowController.h */,
+				B7F870F115FFDB5300175B2A /* TYSettingsWindowController.m */,
+				B7319B5D15FF89BF005269D5 /* SettingsWindow.xib */,
+				B7986A0F15FBF66A006A2476 /* TYAppDelegate.h */,
+				B7986A1015FBF66A006A2476 /* TYAppDelegate.m */,
 				B7986A1215FBF66A006A2476 /* MainMenu.xib */,
 				B7986A0415FBF66A006A2476 /* Supporting Files */,
 			);
@@ -162,6 +175,7 @@
 				B7986A0815FBF66A006A2476 /* InfoPlist.strings in Resources */,
 				B7986A0E15FBF66A006A2476 /* Credits.rtf in Resources */,
 				B7986A1415FBF66A006A2476 /* MainMenu.xib in Resources */,
+				B7319B5E15FF89BF005269D5 /* SettingsWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +189,8 @@
 				B7986A0A15FBF66A006A2476 /* main.m in Sources */,
 				B7986A1115FBF66A006A2476 /* TYAppDelegate.m in Sources */,
 				B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */,
+				B7F870F215FFDB5300175B2A /* TYSettingsWindowController.m in Sources */,
+				B76ECEAB1603B6F300515BF0 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +316,7 @@
 				B7986A1915FBF66A006A2476 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

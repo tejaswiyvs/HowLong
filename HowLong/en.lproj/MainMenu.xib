@@ -55,6 +55,14 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
+					<object class="NSMenuItem" id="524252424">
+						<reference key="NSMenu" ref="427714033"/>
+						<string key="NSTitle">Settings</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="640061407"/>
+						<reference key="NSMixedImage" ref="100441140"/>
+					</object>
 					<object class="NSMenuItem" id="572737962">
 						<reference key="NSMenu" ref="427714033"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -110,6 +118,14 @@
 					</object>
 					<int key="connectionID">553</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setBirthDateItemClicked:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="524252424"/>
+					</object>
+					<int key="connectionID">555</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -154,6 +170,7 @@
 							<reference ref="897417579"/>
 							<reference ref="660589626"/>
 							<reference ref="572737962"/>
+							<reference ref="524252424"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -172,6 +189,11 @@
 						<reference key="object" ref="572737962"/>
 						<reference key="parent" ref="427714033"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">554</int>
+						<reference key="object" ref="524252424"/>
+						<reference key="parent" ref="427714033"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -184,12 +206,13 @@
 				<string key="546.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="549.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="554.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">553</int>
+			<int key="maxID">664</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -217,12 +240,17 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="menu">NSMenu</string>
+						<string key="setBirthDateItem">NSMenuItem</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="menu">
 							<string key="name">menu</string>
 							<string key="candidateClassName">NSMenu</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="setBirthDateItem">
+							<string key="name">setBirthDateItem</string>
+							<string key="candidateClassName">NSMenuItem</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="window">
 							<string key="name">window</string>
