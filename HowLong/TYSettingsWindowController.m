@@ -11,6 +11,7 @@
 
 @interface TYSettingsWindowController ()
 -(void) populateData;
+-(void) postNotification;
 @end
 
 @implementation TYSettingsWindowController
@@ -41,6 +42,7 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
     
     NSString *bucketListUrl = [self.bucketListTxtField stringValue];
     [defaults setObject:bucketListUrl forKey:kBucketListUrlKey];
+    [self postNotification];
     [self hide];
 }
 
@@ -51,6 +53,7 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
 -(void) show {
     [self populateData];
     [self.window makeKeyAndOrderFront:NSApp];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 -(void) hide {
@@ -68,6 +71,10 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
     if (bucketListUrl && ![bucketListUrl isEqualToString:@""]) {
         [self.bucketListTxtField setStringValue:bucketListUrl];
     }
+}
+
+-(void) postNotification {
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kSettingsUpdatedNotification object:nil]];
 }
 
 @end
