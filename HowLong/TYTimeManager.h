@@ -15,6 +15,4 @@
 @property (nonatomic, assign) float percentageComplete;
 @property (nonatomic, strong) NSTimer *timer;
 
--(void) reloadConfig;
-
 @end

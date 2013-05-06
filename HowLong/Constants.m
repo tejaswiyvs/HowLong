@@ -10,3 +10,4 @@
 
 NSString * const kBirthDateKey = @"birth_date";
 NSString * const kBucketListUrlKey = @"bucket_list";
+NSString * const kTweetEnabledKey = @"tweet_enabled";

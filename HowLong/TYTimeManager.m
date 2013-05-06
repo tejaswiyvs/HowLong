@@ -11,7 +11,6 @@
 
 @interface TYTimeManager ()
 -(long) ageFromBirthDate:(NSDate *) birthDate;
--(long) hoursLeftFromBirthDate:(NSDate *) birthDate;
 -(NSDate *) dateByAddingYears:(int) years toBirthDate:(NSDate *) birthDate;
 @end
 

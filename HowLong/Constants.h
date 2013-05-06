@@ -8,3 +8,4 @@
 
 extern NSString * const kBirthDateKey;
 extern NSString * const kBucketListUrlKey;
+extern NSString * const kTweetEnabledKey;
