@@ -2,3 +2,7 @@ HowLong
 =======
 
 It's a simple mac toolbar app that alerts you how long you have left before you hit 30 years in age. A gentle reminder for myself that time does not wait for you and to not spend all day on reddit. At some point, I'd like to make a physical clock that counts down the number of hours till you hit 30 using giant seven segment LCDs, but that's a project for another day. A little bit of detail on why exactly this might be important is up on my [blog](http://tejaswi-yerukalapudi.com/2012/09/10/a-countdown-timer-for-your-life/).
+
+IMPORTANT: Please don't use the 'Show Tweets Everyday' feature! Still under development, and it will start spamming notifications all the time on your Mac.
+
+[Download link.](http://dl.dropbox.com/u/226724/HowLong.zip)
