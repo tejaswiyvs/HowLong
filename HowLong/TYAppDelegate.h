@@ -14,16 +14,4 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-// Menu items
-@property (nonatomic, strong) IBOutlet NSMenu *menu;
-@property (nonatomic, strong) IBOutlet NSMenuItem *setBirthDateItem;
-@property (nonatomic, strong) NSStatusItem *statusMenuItem;
-
-@property (nonatomic, strong) TYTimeManager *manager;
-@property (nonatomic, strong) TYSettingsWindowController *settingsController;
-
--(IBAction)openBucketListItemClicked:(id)sender;
--(IBAction)setBirthDateItemClicked:(id)sender;
--(IBAction)quitItemClicked:(id)sender;
-
 @end

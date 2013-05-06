@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "TYTweetManager.h"
+#import "TYMessageManager.h"
 
 NSString * const kSettingsUpdatedNotification;
 
@@ -17,7 +17,6 @@ NSString * const kSettingsUpdatedNotification;
 @property (nonatomic, strong) IBOutlet NSDatePicker *birthDatePicker;
 @property (nonatomic, strong) IBOutlet NSButton *showTweetsBtn;
 @property (nonatomic, assign) BOOL shouldShowTweets;
-@property (nonatomic, strong) TYTweetManager *tweetManager;
 
 -(IBAction)saveButtonClicked:(id)sender;
 -(IBAction)cancelButtonClicked:(id)sender;

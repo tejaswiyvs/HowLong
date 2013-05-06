@@ -19,16 +19,9 @@
 
 NSString * const kSettingsUpdatedNotification = @"settings_updated";
 
-@synthesize bucketListTxtField = _bucketListTxtField;
-@synthesize birthDatePicker = _birthDatePicker;
-@synthesize tweetManager = _tweetManager;
-@synthesize showTweetsBtn = _showTweets;
-@synthesize shouldShowTweets = _shouldShowTweets;
-
 -(id) init {
     self = [super initWithWindowNibName:@"SettingsWindow"];
     if (self) {
-        self.tweetManager = [[TYTweetManager alloc] init];
     }
     return self;
 }
@@ -53,14 +46,15 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
     [defaults setObject:bucketListUrl forKey:kBucketListUrlKey];
     
     // If checkbox status changed, enable / disable notifications accordingly.
+    //TODO: Implement this without scheduled notifications
     if (self.shouldShowTweets != [self showTweetsStatus]) {
-        self.shouldShowTweets = [self showTweetsStatus];
-        if (self.shouldShowTweets) {
-            [self.tweetManager startNotifications];
-        }
-        else {
-            [self.tweetManager stopNotifications];
-        }
+//        self.shouldShowTweets = [self showTweetsStatus];
+//        if (self.shouldShowTweets) {
+//            [self.tweetManager startNotifications];
+//        }
+//        else {
+//            [self.tweetManager stopNotifications];
+//        }
     }
     [defaults setObject:[NSNumber numberWithBool:self.shouldShowTweets] forKey:kTweetEnabledKey];
     [defaults synchronize];

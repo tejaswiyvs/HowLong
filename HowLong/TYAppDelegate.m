@@ -8,29 +8,36 @@
 
 #import "TYAppDelegate.h"
 #import "TYTimeManager.h"
+#import "TYMessageManager.h"
 #import "TYSettingsWindowController.h"
 #import "Constants.h"
 
 
-@interface TYAppDelegate ()
+@interface TYAppDelegate ()<NSUserNotificationCenterDelegate>
+
+// Menu items
+@property (nonatomic, strong) IBOutlet NSMenu *menu;
+@property (nonatomic, strong) IBOutlet NSMenuItem *setBirthDateItem;
+@property (nonatomic, strong) NSStatusItem *statusMenuItem;
+
+@property (nonatomic, strong) TYTimeManager *timeManager;
+@property (nonatomic, strong) TYMessageManager *messageManager;
+@property (nonatomic, strong) TYSettingsWindowController *settingsController;
+
 -(void) refreshStatusText;
 -(void) settingsNotificationFired:(NSNotification *) notification;
 @end
 
 @implementation TYAppDelegate
 
-@synthesize statusMenuItem = _statusMenuItem;
-@synthesize setBirthDateItem = _setBirthDateItem;
-@synthesize menu = _menu;
-@synthesize manager = _manager;
-
 const int kWindowWidth = 600;
 const int kWindowHeight = 400;
 
--(void) awakeFromNib
-{
-    self.manager = [[TYTimeManager alloc] init];
-    [self.manager addObserver:self forKeyPath:@"hoursLeft" options:0 context:NULL];
+-(void) awakeFromNib {
+    self.timeManager = [[TYTimeManager alloc] init];
+    [self.timeManager addObserver:self forKeyPath:@"hoursLeft" options:0 context:NULL];
+    
+    self.messageManager = [[TYMessageManager alloc] init];
     
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     
@@ -46,6 +53,10 @@ const int kWindowHeight = 400;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsNotificationFired:) name:kSettingsUpdatedNotification object:nil];
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification *)notification {
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 }
 
 -(void)applicationDidBecomeActive:(NSNotification *)notification {
@@ -70,6 +81,21 @@ const int kWindowHeight = 400;
     }
 }
 
+-(IBAction)showMessageItemClicked:(id)sender {
+    TYMessage *message = [self.messageManager randomMessage];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[message.message] forKeys:@[@"full-message"]];
+
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = @"A 30th Birthday Message!";
+    notification.informativeText = message.message;
+    notification.userInfo = userInfo;
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    
+    
+}
+
+
 -(IBAction)setBirthDateItemClicked:(id)sender {
     if (!self.settingsController) {
         self.settingsController = [[TYSettingsWindowController alloc] init];
@@ -90,7 +116,20 @@ const int kWindowHeight = 400;
 #pragma mark - Helpers
 
 -(void) refreshStatusText {
-    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f%% | %.6ld hrs", self.manager.percentageComplete, self.manager.hoursLeft]];
+    [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f%%", self.timeManager.percentageComplete]];
 }
+
+#pragma mark - Notification Center delegate
+
+-(BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
+}
+
+-(void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:notification.userInfo[@"full-message"]];
+    [alert runModal];
+}
+
 
 @end

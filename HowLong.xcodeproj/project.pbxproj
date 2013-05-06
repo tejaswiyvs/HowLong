@@ -26,7 +26,7 @@
 		B7A2E4471737670800C7ACB3 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A2E43C1737670800C7ACB3 /* AFURLConnectionOperation.m */; };
 		B7A2E4481737670800C7ACB3 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A2E43E1737670800C7ACB3 /* AFXMLRequestOperation.m */; };
 		B7A2E4491737670800C7ACB3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A2E4401737670800C7ACB3 /* UIImageView+AFNetworking.m */; };
-		B7E5AD801641BCA400AAD964 /* TYTweetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E5AD7F1641BCA300AAD964 /* TYTweetManager.m */; };
+		B7E5AD801641BCA400AAD964 /* TYMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E5AD7F1641BCA300AAD964 /* TYMessageManager.m */; };
 		B7E5ADC01641BFF200AAD964 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E5ADBF1641BFF200AAD964 /* SystemConfiguration.framework */; };
 		B7E5ADD31641CCB600AAD964 /* TYSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7F870F115FFDB5300175B2A /* TYSettingsWindowController.m */; };
 /* End PBXBuildFile section */
@@ -71,8 +71,8 @@
 		B7A2E43E1737670800C7ACB3 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = Libraries/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		B7A2E43F1737670800C7ACB3 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "Libraries/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		B7A2E4401737670800C7ACB3 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "Libraries/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		B7E5AD7E1641BCA300AAD964 /* TYTweetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTweetManager.h; sourceTree = "<group>"; };
-		B7E5AD7F1641BCA300AAD964 /* TYTweetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTweetManager.m; sourceTree = "<group>"; };
+		B7E5AD7E1641BCA300AAD964 /* TYMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYMessageManager.h; sourceTree = "<group>"; };
+		B7E5AD7F1641BCA300AAD964 /* TYMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYMessageManager.m; sourceTree = "<group>"; };
 		B7E5ADBF1641BFF200AAD964 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B7F870F015FFDB5300175B2A /* TYSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSettingsWindowController.h; sourceTree = "<group>"; };
 		B7F870F115FFDB5300175B2A /* TYSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSettingsWindowController.m; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				B7E5AD851641BF4A00AAD964 /* Libraries */,
-				B7E5AD7E1641BCA300AAD964 /* TYTweetManager.h */,
-				B7E5AD7F1641BCA300AAD964 /* TYTweetManager.m */,
+				B7E5AD7E1641BCA300AAD964 /* TYMessageManager.h */,
+				B7E5AD7F1641BCA300AAD964 /* TYMessageManager.m */,
 				B76ECEB61603CA8400515BF0 /* TYHowLongApp.h */,
 				B76ECEB71603CA8400515BF0 /* TYHowLongApp.m */,
 				B76ECEA91603B6F300515BF0 /* Constants.h */,
@@ -268,7 +268,7 @@
 				B7986A1C15FBF741006A2476 /* TYTimeManager.m in Sources */,
 				B76ECEAB1603B6F300515BF0 /* Constants.m in Sources */,
 				B76ECEB81603CA8400515BF0 /* TYHowLongApp.m in Sources */,
-				B7E5AD801641BCA400AAD964 /* TYTweetManager.m in Sources */,
+				B7E5AD801641BCA400AAD964 /* TYMessageManager.m in Sources */,
 				B7E5ADD31641CCB600AAD964 /* TYSettingsWindowController.m in Sources */,
 				B7A2E4411737670800C7ACB3 /* AFHTTPClient.m in Sources */,
 				B7A2E4421737670800C7ACB3 /* AFHTTPRequestOperation.m in Sources */,
