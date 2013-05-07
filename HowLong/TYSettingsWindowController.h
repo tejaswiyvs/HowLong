@@ -16,7 +16,8 @@ NSString * const kSettingsUpdatedNotification;
 @property (nonatomic, strong) IBOutlet NSTextField *bucketListTxtField;
 @property (nonatomic, strong) IBOutlet NSDatePicker *birthDatePicker;
 @property (nonatomic, strong) IBOutlet NSButton *showTweetsBtn;
-@property (nonatomic, assign) BOOL shouldShowTweets;
+//this is read asynchronously by the app delegate
+@property (atomic) BOOL shouldShowMessage;
 
 -(IBAction)saveButtonClicked:(id)sender;
 -(IBAction)cancelButtonClicked:(id)sender;

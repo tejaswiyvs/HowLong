@@ -22,6 +22,8 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
 -(id) init {
     self = [super initWithWindowNibName:@"SettingsWindow"];
     if (self) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        self.shouldShowMessage = [[defaults objectForKey:kTweetEnabledKey] boolValue];
     }
     return self;
 }
@@ -45,18 +47,8 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
     NSString *bucketListUrl = [self.bucketListTxtField stringValue];
     [defaults setObject:bucketListUrl forKey:kBucketListUrlKey];
     
-    // If checkbox status changed, enable / disable notifications accordingly.
-    //TODO: Implement this without scheduled notifications
-    if (self.shouldShowTweets != [self showTweetsStatus]) {
-//        self.shouldShowTweets = [self showTweetsStatus];
-//        if (self.shouldShowTweets) {
-//            [self.tweetManager startNotifications];
-//        }
-//        else {
-//            [self.tweetManager stopNotifications];
-//        }
-    }
-    [defaults setObject:[NSNumber numberWithBool:self.shouldShowTweets] forKey:kTweetEnabledKey];
+    self.shouldShowMessage = [self showTweetsStatus];
+    [defaults setObject:[NSNumber numberWithBool:self.shouldShowMessage] forKey:kTweetEnabledKey];
     [defaults synchronize];
     
     // Post Notification so that the App Delegate updates the UI
@@ -83,7 +75,7 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDate *birthDate = [defaults objectForKey:kBirthDateKey];
     NSString *bucketListUrl = [defaults objectForKey:kBucketListUrlKey];
-    self.shouldShowTweets = [[defaults objectForKey:kTweetEnabledKey] boolValue];
+    self.shouldShowMessage = [[defaults objectForKey:kTweetEnabledKey] boolValue];
     
     if (birthDate) {
         [self.birthDatePicker setDateValue:birthDate];
@@ -92,12 +84,12 @@ NSString * const kSettingsUpdatedNotification = @"settings_updated";
         [self.bucketListTxtField setStringValue:bucketListUrl];
     }
     [self.showTweetsBtn setState:NSOffState];
-//    if (self.shouldShowTweets) {
-//        [self.showTweetsBtn setState:NSOnState];
-//    }
-//    else {
-//        [self.showTweetsBtn setState:NSOffState];
-//    }
+    if (self.shouldShowMessage) {
+        [self.showTweetsBtn setState:NSOnState];
+    }
+    else {
+        [self.showTweetsBtn setState:NSOffState];
+    }
 }
 
 -(void) postNotification {

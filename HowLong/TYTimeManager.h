@@ -13,6 +13,5 @@
 @property (nonatomic, assign) NSDate *birthDate;
 @property (nonatomic, assign) long hoursLeft;
 @property (nonatomic, assign) float percentageComplete;
-@property (nonatomic, strong) NSTimer *timer;
 
 @end

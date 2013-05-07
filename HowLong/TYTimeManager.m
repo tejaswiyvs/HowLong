@@ -16,18 +16,12 @@
 
 @implementation TYTimeManager
 
-@synthesize birthDate = _birthDate;
-@synthesize hoursLeft = _hoursLeft;
-@synthesize percentageComplete = _percentageComplete;
-
 static const int kMaxYears = 30;
 static const int kGoodYears = 10;
-static const float kTimerRefreshRate = 3600.0f;
 
 -(id) init {
     self = [super init];
     if (self) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:kTimerRefreshRate target:self selector:@selector(refreshHoursLeft:) userInfo:nil repeats:YES];
     }
     return self;
 }

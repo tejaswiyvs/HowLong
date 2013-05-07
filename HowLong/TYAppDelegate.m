@@ -20,11 +20,12 @@
 @property (nonatomic, strong) IBOutlet NSMenuItem *setBirthDateItem;
 @property (nonatomic, strong) NSStatusItem *statusMenuItem;
 
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) TYTimeManager *timeManager;
 @property (nonatomic, strong) TYMessageManager *messageManager;
 @property (nonatomic, strong) TYSettingsWindowController *settingsController;
 
--(void) refreshStatusText;
+-(void) refreshInterface: (NSTimer *)timer;
 -(void) settingsNotificationFired:(NSNotification *) notification;
 @end
 
@@ -33,10 +34,12 @@
 const int kWindowWidth = 600;
 const int kWindowHeight = 400;
 
+//refreshing every 10 hours
+//TODO: set it to a fixed time like 9am/5pm instead
+static const float kTimerRefreshRate = 36000.0f;
+
 -(void) awakeFromNib {
     self.timeManager = [[TYTimeManager alloc] init];
-    [self.timeManager addObserver:self forKeyPath:@"hoursLeft" options:0 context:NULL];
-    
     self.messageManager = [[TYMessageManager alloc] init];
     
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
@@ -53,6 +56,9 @@ const int kWindowHeight = 400;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingsNotificationFired:) name:kSettingsUpdatedNotification object:nil];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kTimerRefreshRate target:self selector:@selector(refreshInterface:) userInfo:nil repeats:YES];
+
 }
 
 -(void)applicationDidFinishLaunching:(NSNotification *)notification {
@@ -82,19 +88,10 @@ const int kWindowHeight = 400;
 }
 
 -(IBAction)showMessageItemClicked:(id)sender {
-    TYMessage *message = [self.messageManager randomMessage];
-    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[message.message] forKeys:@[@"full-message"]];
-
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = @"A 30th Birthday Message!";
-    notification.informativeText = message.message;
-    notification.userInfo = userInfo;
-    
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-    
-    
+    [self showRandomMessage];
+    //get new messages for the next time
+    [self.messageManager loadMessages];
 }
-
 
 -(IBAction)setBirthDateItemClicked:(id)sender {
     if (!self.settingsController) {
@@ -107,16 +104,33 @@ const int kWindowHeight = 400;
     [NSApp terminate:self];
 }
 
-#pragma mark - KVO
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self refreshStatusText];
+#pragma mark - Timer
+-(void) refreshInterface:(NSTimer *)timer {
+    if(self.settingsController.shouldShowMessage)
+        [self showRandomMessage];
+    
+    //get new messages for the next time
+    [self.messageManager loadMessages];
 }
 
 #pragma mark - Helpers
 
 -(void) refreshStatusText {
     [self.statusMenuItem setTitle:[NSString stringWithFormat:@"%2.2f%%", self.timeManager.percentageComplete]];
+}
+
+-(void) showRandomMessage {
+    TYMessage *message = [self.messageManager randomMessage];
+    NSString *fullMessage = [NSString stringWithFormat:@"%@\n\n\n(%@)", message.message, message.url];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[fullMessage] forKeys:@[@"full-message"]];
+    
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = @"A 30th Birthday Message!";
+    notification.informativeText = message.message;
+    notification.userInfo = userInfo;
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+
 }
 
 #pragma mark - Notification Center delegate
